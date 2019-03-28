@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h1 Candidate Assignment - Node.js
+  
+  p(class='brief') Brief: The candidate is to tackle each of the four tasks listed below in the allotted 30 mins. The candidate is not expected to be able to complete the entire assignment. The produced code does not need to be production-ready but should be in a state that the candidate would be prepared to present and demonstrate to their colleagues.
+  
+  p Localhost URL: http://localhost:3000/
+  
+  ol 
+    li Successful build &amp; run app
+    li The page at 
+      a(href='/hello-world' target='_blank') /hello-world 
+      | is returning a 404. Resolve the bug.
+    li Build an API to return forecasted wind speed and direction for the date in three days time based upon an inputted postcode
+      ol
+        li Query Postcodes.io (
+          a(href='https://postcodes.io/' target='_blank') https://postcodes.io/
+          |) with the inputted postcode to return the location's lat/long
+          br
+          |API call - https://api.postcodes.io/postcodes/{POSTCODE}
+        li Query MetaWeather Location Search (
+          a(href='https://www.metaweather.com/api/#locationsearch' target='_blank') https://www.metaweather.com/api/#locationsearch
+          |) with lat/long from above to return Where On Earth ID (woeid)
+          br
+          |API call - https://www.metaweather.com/api/location/search/?lattlong={LATTITUDE},{LONGTITUDE}
+        li Query MetaWeather Location (
+          a(href='https://www.metaweather.com/api/#location' target='_blank') https://www.metaweather.com/api/#location
+          |) with Where On Earth ID (woeid), filter results by applicable_date for the date in three days time and return wind_speed and wind_direction in a JSON object
+          br
+          |API call - https://www.metaweather.com/api/location/{WOEID}/
+    li Write unit tests for the above
+  
